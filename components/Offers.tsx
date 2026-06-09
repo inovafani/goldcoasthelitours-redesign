@@ -1,4 +1,4 @@
-import { ArrowRight, CheckIcon } from "./icons";
+import { ArrowRight, CheckIcon } from './icons';
 
 type Offer = {
   id: string;
@@ -12,30 +12,30 @@ type Offer = {
 
 const OFFERS: Offer[] = [
   {
-    id: "offer-fly-feast",
-    tag: "Scenic · 10 min",
-    title: "Fly and Feast",
-    desc: "Experience a 10 minute scenic flight over the Gold Coast and enjoy a hearty pub meal and a drink afterwards.",
+    id: 'offer-fly-feast',
+    tag: 'Scenic · 30 min',
+    title: 'Fly and Feast',
+    desc: 'Experience a 30 minute scenic flight over the Gold Coast and enjoy a hearty pub meal and a drink afterwards.',
     rows: [
-      "10-minute scenic flight over the coast",
-      "Hearty pub meal afterwards",
-      "A drink to round it off",
+      '10-minute scenic flight over the coast',
+      'Hearty pub meal afterwards',
+      'A drink to round it off',
     ],
-    price: "$165",
-    imgPosition: "center 40%",
+    price: '$165',
+    imgPosition: 'center 40%',
   },
   {
-    id: "offer-sea-sky",
-    tag: "Scenic · 20 min",
-    title: "Sea and Sky",
-    desc: "Experience a 20 minute scenic flight over the Gold Coast with a fresh seafood platter and bubbles afterwards.",
+    id: 'offer-sea-sky',
+    tag: 'Scenic · 45 min',
+    title: 'Sea and Sky',
+    desc: 'Experience a 45 minute scenic flight over the Gold Coast with a fresh seafood platter and bubbles afterwards.',
     rows: [
-      "20-minute scenic flight over the coast",
-      "Fresh seafood platter",
-      "Bubbles afterwards",
+      '20-minute scenic flight over the coast',
+      'Fresh seafood platter',
+      'Bubbles afterwards',
     ],
-    price: "$365",
-    imgPosition: "30% 60%",
+    price: '$365',
+    imgPosition: '30% 60%',
   },
 ];
 
@@ -44,21 +44,27 @@ export default function Offers() {
     <section className="section offers" id="offers">
       <div className="wrap">
         <div className="offers-head">
-          <span className="eyebrow center reveal">Only available for a limited time</span>
+          <span className="eyebrow center reveal">
+            Only available for a limited time
+          </span>
           <h2 className="reveal" data-delay="1">
             Two ways to spend an
             <br />
             <span className="serif-em">unforgettable</span> afternoon
           </h2>
           <p className="reveal" data-delay="2">
-            A scenic flight over the Gold Coast, then settle in for what comes after.
-            Limited dates, booked direct with our team.
+            A scenic flight over the Gold Coast, then settle in for what comes
+            after. Limited dates, booked direct with our team.
           </p>
         </div>
 
         <div className="offers-grid">
           {OFFERS.map((offer, i) => (
-            <article key={offer.id} className="offer-card reveal" data-delay={i + 1}>
+            <article
+              key={offer.id}
+              className="offer-card reveal"
+              data-delay={i + 1}
+            >
               <div className="offer-media">
                 <span className="offer-tag">
                   <span className="dot" />

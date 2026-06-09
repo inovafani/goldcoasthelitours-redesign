@@ -120,7 +120,7 @@ export default function Contact() {
           <iframe
             title="Gold Coast Helitours location"
             loading="lazy"
-            src="https://www.google.com/maps?q=Marina+Mirage,+74+Seaworld+Drive,+Main+Beach+QLD+4217&output=embed"
+            src="https://www.google.com/maps?q=Gold+Coast+Helitours,+Marina+Mirage,+74+Seaworld+Drive,+Main+Beach+QLD+4217&output=embed"
           />
         </div>
       </div>

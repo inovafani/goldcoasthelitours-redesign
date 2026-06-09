@@ -248,7 +248,7 @@ button{font-family:inherit;cursor:pointer;}
   margin:0 0 26px;max-width:15ch;text-wrap:balance;
 }
 .hero h1 .serif-em{font-size:1.04em;line-height:0.8;display:inline-block;padding:0 0.12em 0 0.04em;margin-right:0.12em;}
-.hero h1 .line{display:block;overflow:hidden;}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:0.16em;margin-bottom:-0.16em;}
 .hero h1 .line > span{display:block;}
 .hero-sub{
   font-size:clamp(16px,1.5vw,20px);font-weight:300;line-height:1.6;
