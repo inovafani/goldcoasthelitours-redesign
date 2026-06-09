@@ -372,6 +372,10 @@ button{font-family:inherit;cursor:pointer;}
 .aero-badges img{height:clamp(94px,11vw,128px);width:auto;transition:transform .4s var(--ease),filter .4s var(--ease);
   filter:saturate(1.05);}
 .aero-badges img:hover{transform:translateY(-6px) scale(1.04);}
+/* badge-2023.png is only ~74% filled (extra transparent padding) — scale
+   it up ~1.35x so its visible circle matches the other two badges. */
+.aero-badges img.badge-pad{transform:scale(1.35);}
+.aero-badges img.badge-pad:hover{transform:translateY(-6px) scale(1.4);}
 
 /* ============================================================
    FULL-BLEED PHOTO BAND

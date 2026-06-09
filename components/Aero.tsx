@@ -57,8 +57,14 @@ export default function Aero() {
           </span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/assets/badge-2024.png" alt="Best of Queensland Experience 2024" />
+          {/* 2023 PNG has extra transparent padding — scale up so its
+              circle matches the other two. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/badge-2023.png" alt="Best of Queensland Experience 2023" />
+          <img
+            src="/assets/badge-2023.png"
+            alt="Best of Queensland Experience 2023"
+            className="badge-pad"
+          />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/assets/badge-2025.png" alt="Best of Queensland Experience 2025" />
         </div>
