@@ -373,9 +373,11 @@ button{font-family:inherit;cursor:pointer;}
   filter:saturate(1.05);}
 .aero-badges img:hover{transform:translateY(-6px) scale(1.04);}
 /* badge-2023.png is only ~74% filled (extra transparent padding) — scale
-   it up ~1.35x so its visible circle matches the other two badges. */
-.aero-badges img.badge-pad{transform:scale(1.35);}
-.aero-badges img.badge-pad:hover{transform:translateY(-6px) scale(1.4);}
+   it up ~1.35x so its visible circle matches the other two badges. Its
+   circle also sits ~2.9% below the canvas centre, so nudge it up ~4% to
+   line up with the other two. */
+.aero-badges img.badge-pad{transform:translateY(-4%) scale(1.35);}
+.aero-badges img.badge-pad:hover{transform:translateY(calc(-4% - 6px)) scale(1.4);}
 
 /* ============================================================
    FULL-BLEED PHOTO BAND
@@ -533,6 +535,15 @@ button{font-family:inherit;cursor:pointer;}
   .field.row2{grid-template-columns:1fr;}
   .footer-top{flex-direction:column;}
   .announce .a-txt{font-size:11px;}
+  /* hero: no room for the scroll cue next to the stacked buttons */
+  .scroll-cue{display:none;}
+  /* reserve space at the top so the eyebrow/title never slide under the
+     fixed announcement bar + nav when the content is tall (padding must be
+     on the section, not the bottom-anchored inner, or it cancels out) */
+  .hero{padding-top:150px;}
+  /* equal-width, stacked CTAs — capped so they don't span the whole width */
+  .hero-actions{flex-direction:column;align-items:stretch;max-width:320px;}
+  .hero-actions .btn{width:100%;justify-content:center;}
 }
 
 /* mobile menu drawer */

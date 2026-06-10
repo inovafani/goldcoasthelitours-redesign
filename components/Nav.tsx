@@ -27,9 +27,16 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("top");
+  const [announceH, setAnnounceH] = useState(42);
   const navRef = useRef<HTMLElement>(null);
+  const announceRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    function measure() {
+      // The announcement bar can wrap to multiple lines on mobile, so its
+      // height isn't fixed — measure it and let the nav sit just below it.
+      if (announceRef.current) setAnnounceH(announceRef.current.offsetHeight);
+    }
     function onScroll() {
       setScrolled(window.scrollY > 40);
 
@@ -42,13 +49,18 @@ export default function Nav() {
       });
       setActive(current);
     }
+    function onResize() {
+      measure();
+      onScroll();
+    }
 
+    measure();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
     onScroll();
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
@@ -63,7 +75,7 @@ export default function Nav() {
   return (
     <>
       {/* ============ ANNOUNCEMENT BAR ============ */}
-      <div className={`announce${scrolled ? " hide" : ""}`}>
+      <div ref={announceRef} className={`announce${scrolled ? " hide" : ""}`}>
         <AlertIcon />
         <span className="a-txt">
           Access to our location has changed due to nearby construction.
@@ -75,7 +87,12 @@ export default function Nav() {
       </div>
 
       {/* ============ NAV ============ */}
-      <header ref={navRef} className={`nav${scrolled ? " scrolled" : ""}`} id="nav">
+      <header
+        ref={navRef}
+        className={`nav${scrolled ? " scrolled" : ""}`}
+        id="nav"
+        style={{ top: scrolled ? 0 : announceH }}
+      >
         <a href="#top" className="nav-logo" aria-label="Gold Coast Helitours home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/assets/logo-main.jpg" alt="Gold Coast Helitours Australia" />
