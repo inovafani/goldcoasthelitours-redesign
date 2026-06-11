@@ -232,3 +232,72 @@ export function WineIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function CameraIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="M3 8a2 2 0 0 1 2-2h2l1.2-1.6a1 1 0 0 1 .8-.4h6a1 1 0 0 1 .8.4L17 6h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+      <circle cx="12" cy="12.5" r="3.4" />
+    </svg>
+  );
+}
+
+export function BannerIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="M5 3v18" />
+      <path d="M5 4h13a1 1 0 0 1 .8 1.6L17 8l1.8 2.4A1 1 0 0 1 18 12H5" />
+    </svg>
+  );
+}
+
+export function FlameIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="M12 2.5c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0c0-1.2.4-2.1 1-3 .2 1 .9 1.7 1.7 1.9-.2-2.6 1-5 1.8-7.4Z" />
+      <path d="M12 21a5.5 5.5 0 0 0 5.5-5.5c0-1.3-.3-2.4-.8-3.4" />
+    </svg>
+  );
+}
+
+export function AnchorIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <circle cx="12" cy="5" r="2" />
+      <path d="M12 7v14" />
+      <path d="M5 12a7 7 0 0 0 14 0" />
+      <path d="M5 12H3M21 12h-2M8 9H5M19 9h-3" />
+    </svg>
+  );
+}
+
+export function FilmIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="M3 8.5 21 5" />
+      <path d="m3 8.5 4-2.6M9 7.3 13 4.7M15 6.1 19 3.5" />
+      <rect x="3" y="8.5" width="18" height="11" rx="2" />
+    </svg>
+  );
+}
+
+export function RescueIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="3.6" />
+      <path d="M12 3v4.4M12 16.6V21M3 12h4.4M16.6 12H21" />
+    </svg>
+  );
+}
+
+export function CraneIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="M5 21V4l13 3" />
+      <path d="M5 4h2M12 5.6V9" />
+      <path d="M12 9a2 2 0 0 0 0 4 2 2 0 0 0 0-4Z" />
+      <path d="M10.4 13.6 12 17l1.6-3.4" />
+    </svg>
+  );
+}

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { CHARTER_SERVICES } from "./charterData";
 import { OCCASIONS } from "./specialData";
+import { SPEC_OPS } from "./specialisedData";
 import {
   AlertIcon,
   ArrowRight,
@@ -22,6 +23,13 @@ import {
   RingIcon,
   HeartIcon,
   WineIcon,
+  CameraIcon,
+  BannerIcon,
+  FlameIcon,
+  AnchorIcon,
+  FilmIcon,
+  RescueIcon,
+  CraneIcon,
 } from "./icons";
 
 const MENU_ICONS = {
@@ -34,6 +42,13 @@ const MENU_ICONS = {
   ring: RingIcon,
   heart: HeartIcon,
   wine: WineIcon,
+  camera: CameraIcon,
+  banner: BannerIcon,
+  flame: FlameIcon,
+  anchor: AnchorIcon,
+  film: FilmIcon,
+  rescue: RescueIcon,
+  crane: CraneIcon,
 } as const;
 
 type Child = { label: string; href: string; short: string; icon: keyof typeof MENU_ICONS };
@@ -53,12 +68,19 @@ const SPECIAL_CHILDREN: Child[] = OCCASIONS.map((o) => ({
   icon: o.icon,
 }));
 
+const SPEC_OP_CHILDREN: Child[] = SPEC_OPS.map((s) => ({
+  label: s.name,
+  href: `/specialised-operations/${s.slug}`,
+  short: s.short,
+  icon: s.icon,
+}));
+
 const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/", spyId: "top" },
   { label: "Scenic Flights", href: "/scenic-flights" },
   { label: "Charter", href: "/charter", children: CHARTER_CHILDREN },
   { label: "Special Occasions", href: "/special-occasions", children: SPECIAL_CHILDREN },
-  { label: "Specialised Operations", href: "/#aero", spyId: "aero" },
+  { label: "Specialised Operations", href: "/specialised-operations", children: SPEC_OP_CHILDREN },
   { label: "About us", href: "/#aero" },
   { label: "Contact Us", href: "/#contact", spyId: "contact" },
 ];

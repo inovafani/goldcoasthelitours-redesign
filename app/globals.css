@@ -971,3 +971,41 @@ button{font-family:inherit;cursor:pointer;}
 @media (max-width:560px){
   .so-price-options{grid-template-columns:1fr;}
 }
+
+/* ---- capability bullet list (sky crane) ---- */
+.so-caps{margin-top:clamp(40px,5vw,64px);}
+.so-caps-lead{text-align:center;font-size:clamp(16px,1.5vw,18.5px);font-weight:300;color:var(--on-dark);margin:0;}
+.so-caps .ch-bullets{margin-top:clamp(24px,3vw,40px);}
+
+/* ---- camera systems chips (motion picture) ---- */
+.so-equip{margin-top:clamp(48px,7vw,90px);text-align:center;}
+.so-equip .eyebrow{justify-content:center;margin-bottom:24px;}
+.so-equip-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:840px;margin:0 auto;}
+.so-chip{
+  font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:0.02em;color:var(--on-dark);
+  border:1px solid var(--hair-d);border-radius:var(--r-pill);padding:11px 20px;background:rgba(255,255,255,0.03);
+  transition:border-color .25s var(--ease),color .25s,background .25s;
+}
+.so-chip:hover{border-color:var(--orange);color:#fff;background:rgba(242,106,22,0.12);}
+
+/* ---- selected credits columns (motion picture) ---- */
+.so-credits-wrap{margin-top:clamp(56px,8vw,100px);text-align:center;}
+.so-credits-wrap .eyebrow{justify-content:center;margin-bottom:clamp(28px,4vw,44px);}
+.so-credits{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px);
+  max-width:1000px;margin:0 auto;text-align:left;
+}
+.so-credit-col h4{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:17px;letter-spacing:-0.01em;
+  color:var(--on-dark);margin:0 0 14px;padding-bottom:14px;border-bottom:1px solid var(--hair-d);
+}
+.so-credit-col ul{list-style:none;padding:0;margin:0;}
+.so-credit-col li{
+  font-size:14.5px;line-height:1.5;font-weight:300;color:var(--on-dark-mut);
+  padding:9px 0;border-bottom:1px solid var(--hair-d-soft);
+}
+.so-credit-col li:last-child{border-bottom:none;}
+
+@media (max-width:760px){
+  .so-credits{grid-template-columns:1fr;gap:clamp(20px,4vw,32px);max-width:420px;}
+}
