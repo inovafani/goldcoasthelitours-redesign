@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { CHARTER_SERVICES } from "./charterData";
+import { OCCASIONS } from "./specialData";
 import {
   AlertIcon,
   ArrowRight,
@@ -17,17 +18,25 @@ import {
   BriefcaseIcon,
   FlagIcon,
   CalendarStarIcon,
+  PicnicIcon,
+  RingIcon,
+  HeartIcon,
+  WineIcon,
 } from "./icons";
 
-const CHARTER_ICONS = {
+const MENU_ICONS = {
   survey: SurveyIcon,
   plane: PlaneIcon,
   briefcase: BriefcaseIcon,
   flag: FlagIcon,
   calendar: CalendarStarIcon,
+  picnic: PicnicIcon,
+  ring: RingIcon,
+  heart: HeartIcon,
+  wine: WineIcon,
 } as const;
 
-type Child = { label: string; href: string; short: string; icon: keyof typeof CHARTER_ICONS };
+type Child = { label: string; href: string; short: string; icon: keyof typeof MENU_ICONS };
 type NavLink = { label: string; href: string; spyId?: string; children?: Child[] };
 
 const CHARTER_CHILDREN: Child[] = CHARTER_SERVICES.map((s) => ({
@@ -37,11 +46,18 @@ const CHARTER_CHILDREN: Child[] = CHARTER_SERVICES.map((s) => ({
   icon: s.icon,
 }));
 
+const SPECIAL_CHILDREN: Child[] = OCCASIONS.map((o) => ({
+  label: o.name,
+  href: `/special-occasions/${o.slug}`,
+  short: o.short,
+  icon: o.icon,
+}));
+
 const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/", spyId: "top" },
   { label: "Scenic Flights", href: "/scenic-flights" },
   { label: "Charter", href: "/charter", children: CHARTER_CHILDREN },
-  { label: "Special Occasions", href: "/#offers", spyId: "offers" },
+  { label: "Special Occasions", href: "/special-occasions", children: SPECIAL_CHILDREN },
   { label: "Specialised Operations", href: "/#aero", spyId: "aero" },
   { label: "About us", href: "/#aero" },
   { label: "Contact Us", href: "/#contact", spyId: "contact" },
@@ -54,7 +70,7 @@ export default function Nav() {
   const onHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [charterOpen, setCharterOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [activeSpy, setActiveSpy] = useState("top");
   const [announceH, setAnnounceH] = useState(42);
   const navRef = useRef<HTMLElement>(null);
@@ -98,7 +114,7 @@ export default function Nav() {
 
   function closeMobile() {
     setMenuOpen(false);
-    setCharterOpen(false);
+    setOpenGroup(null);
   }
 
   function isActive(link: NavLink) {
@@ -144,7 +160,7 @@ export default function Nav() {
                 <div className="nav-dd" role="menu">
                   <div className="nav-dd-panel">
                     {link.children.map((c) => {
-                      const Icon = CHARTER_ICONS[c.icon];
+                      const Icon = MENU_ICONS[c.icon];
                       return (
                         <a key={c.href} className="nav-dd-item" href={c.href} role="menuitem">
                           <span className="dd-ic">
@@ -207,16 +223,18 @@ export default function Nav() {
           link.children ? (
             <div className="mm-group" key={`mm-${link.href}-${i}`}>
               <button
-                className={`mm-link mm-dd-toggle${charterOpen ? " open" : ""}`}
-                onClick={() => setCharterOpen((v) => !v)}
-                aria-expanded={charterOpen}
+                className={`mm-link mm-dd-toggle${openGroup === link.label ? " open" : ""}`}
+                onClick={() =>
+                  setOpenGroup((v) => (v === link.label ? null : link.label))
+                }
+                aria-expanded={openGroup === link.label}
               >
                 {link.label}
                 <ChevronDown className="mm-caret" />
               </button>
-              <div className={`mm-sub${charterOpen ? " open" : ""}`}>
+              <div className={`mm-sub${openGroup === link.label ? " open" : ""}`}>
                 <a className="mm-sub-link" href={link.href} onClick={closeMobile}>
-                  Charter overview
+                  {link.label} overview
                 </a>
                 {link.children.map((c) => (
                   <a key={c.href} className="mm-sub-link" href={c.href} onClick={closeMobile}>

@@ -193,3 +193,42 @@ export function CalendarStarIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function PicnicIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="M3 9h18" />
+      <path d="M5 9l1.4 10.2A1 1 0 0 0 7.4 20h9.2a1 1 0 0 0 1-.8L19 9" />
+      <path d="M8.5 9 10 3M15.5 9 14 3" />
+      <path d="M9 13v4M15 13v4" />
+    </svg>
+  );
+}
+
+export function RingIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="m8 3 4 4 4-4" />
+      <path d="m8 3-2 3.4 6 3.6 6-3.6L16 3" />
+      <circle cx="12" cy="15" r="6" />
+    </svg>
+  );
+}
+
+export function HeartIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="M19 5.6a4.5 4.5 0 0 0-6.3 0L12 6.3l-.7-.7a4.5 4.5 0 0 0-6.4 6.3l.7.7L12 20l6.4-6.4.7-.7a4.5 4.5 0 0 0-.1-6.3Z" />
+    </svg>
+  );
+}
+
+export function WineIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="M7 3h10l-.7 6.2A4.5 4.5 0 0 1 12 13a4.5 4.5 0 0 1-4.3-3.8Z" />
+      <path d="M6.5 7h11" />
+      <path d="M12 13v6M8 21h8" />
+    </svg>
+  );
+}
