@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-top">
         <div className="footer-brand">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/logo-main.jpg" alt="Gold Coast Helitours Australia" />
+          <img src="/assets/logo-white.png" alt="Gold Coast Helitours Australia" />
           <p>
             Scenic flights, private charters and specialised aerial operations across
             the Gold Coast — from our heliport at Marina Mirage.
@@ -17,19 +17,19 @@ export default function Footer() {
             <h4>Explore</h4>
             <ul>
               <li>
-                <a href="#scenic">Scenic Flights</a>
+                <a href="/scenic-flights">Scenic Flights</a>
               </li>
               <li>
-                <a href="#charter">Charter</a>
+                <a href="/#charter">Charter</a>
               </li>
               <li>
-                <a href="#offers">Special Occasions</a>
+                <a href="/#offers">Special Occasions</a>
               </li>
               <li>
-                <a href="#aero">Specialised Operations</a>
+                <a href="/#aero">Specialised Operations</a>
               </li>
               <li>
-                <a href="#aero">About us</a>
+                <a href="/#aero">About us</a>
               </li>
             </ul>
           </div>

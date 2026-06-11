@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   AlertIcon,
   ArrowRight,
@@ -11,22 +12,26 @@ import {
   CloseIcon,
 } from "./icons";
 
-const NAV_LINKS = [
-  { label: "Home", href: "#top" },
-  { label: "Scenic Flights", href: "#scenic" },
-  { label: "Charter", href: "#charter" },
-  { label: "Special Occasions", href: "#offers" },
-  { label: "Specialised Operations", href: "#aero" },
-  { label: "About us", href: "#aero" },
-  { label: "Contact Us", href: "#contact" },
+type NavLink = { label: string; href: string; spyId?: string };
+
+const NAV_LINKS: NavLink[] = [
+  { label: "Home", href: "/", spyId: "top" },
+  { label: "Scenic Flights", href: "/scenic-flights" },
+  { label: "Charter", href: "/#charter", spyId: "charter" },
+  { label: "Special Occasions", href: "/#offers", spyId: "offers" },
+  { label: "Specialised Operations", href: "/#aero", spyId: "aero" },
+  { label: "About us", href: "/#aero" },
+  { label: "Contact Us", href: "/#contact", spyId: "contact" },
 ];
 
 const SPY_SECTIONS = ["top", "scenic", "charter", "offers", "aero", "contact"];
 
 export default function Nav() {
+  const pathname = usePathname();
+  const onHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState("top");
+  const [activeSpy, setActiveSpy] = useState("top");
   const [announceH, setAnnounceH] = useState(42);
   const navRef = useRef<HTMLElement>(null);
   const announceRef = useRef<HTMLDivElement>(null);
@@ -40,14 +45,15 @@ export default function Nav() {
     function onScroll() {
       setScrolled(window.scrollY > 40);
 
-      // scroll-spy: pick the last section whose top has crossed 35% of viewport
+      // scroll-spy only matters on the homepage (single-page sections)
+      if (pathname !== "/") return;
       const mid = window.innerHeight * 0.35;
       let current = "top";
       SPY_SECTIONS.forEach((id) => {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= mid) current = id;
       });
-      setActive(current);
+      setActiveSpy(current);
     }
     function onResize() {
       measure();
@@ -62,7 +68,7 @@ export default function Nav() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
     };
-  }, []);
+  }, [pathname]);
 
   // lock body scroll while the mobile drawer is open
   useEffect(() => {
@@ -72,6 +78,13 @@ export default function Nav() {
     };
   }, [menuOpen]);
 
+  function isActive(link: NavLink) {
+    // On a subpage, highlight the link that points to this page.
+    if (!onHome) return link.href === pathname;
+    // On the homepage, follow the scroll-spy section.
+    return !!link.spyId && link.spyId === activeSpy;
+  }
+
   return (
     <>
       {/* ============ ANNOUNCEMENT BAR ============ */}
@@ -80,7 +93,7 @@ export default function Nav() {
         <span className="a-txt">
           Access to our location has changed due to nearby construction.
         </span>
-        <a href="#contact">
+        <a href="/#contact">
           View directions
           <ArrowRight />
         </a>
@@ -93,15 +106,15 @@ export default function Nav() {
         id="nav"
         style={{ top: scrolled ? 0 : announceH }}
       >
-        <a href="#top" className="nav-logo" aria-label="Gold Coast Helitours home">
+        <a href="/" className="nav-logo" aria-label="Gold Coast Helitours home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/logo-main.jpg" alt="Gold Coast Helitours Australia" />
+          <img src="/assets/logo-white.png" alt="Gold Coast Helitours Australia" />
         </a>
         <nav className="nav-menu" aria-label="Primary">
           {NAV_LINKS.map((link, i) => (
             <a
               key={`${link.href}-${i}`}
-              className={`nav-link${active === link.href.slice(1) ? " active" : ""}`}
+              className={`nav-link${isActive(link) ? " active" : ""}`}
               href={link.href}
             >
               {link.label}
@@ -121,7 +134,7 @@ export default function Nav() {
               <InstagramIcon />
             </a>
           </div>
-          <a href="#offers" className="btn btn-primary btn-sm nav-cta">
+          <a href="/#offers" className="btn btn-primary btn-sm nav-cta">
             Book now
           </a>
           <button
@@ -154,7 +167,7 @@ export default function Nav() {
             <PhoneIcon />
             (+61) 07 5591 8457
           </a>
-          <a href="#offers" className="btn btn-primary" onClick={() => setMenuOpen(false)}>
+          <a href="/#offers" className="btn btn-primary" onClick={() => setMenuOpen(false)}>
             Book now
           </a>
         </div>

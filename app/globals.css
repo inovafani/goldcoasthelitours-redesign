@@ -559,3 +559,123 @@ button{font-family:inherit;cursor:pointer;}
 .mobile-menu .mm-close svg{width:30px;height:30px;}
 .mobile-menu .mm-foot{margin-top:auto;display:flex;flex-direction:column;gap:14px;}
 .mobile-menu .mm-foot .nav-phone{font-size:16px;}
+
+/* ============================================================
+   SCENIC FLIGHTS PAGE
+   ============================================================ */
+.sf-hero{
+  position:relative;min-height:100svh;
+  display:flex;align-items:flex-end;overflow:hidden;background:var(--black);
+}
+.sf-hero .hero-inner{padding-bottom:clamp(48px,8vh,92px);}
+.sf-hero .eyebrow{margin-bottom:24px;}
+.sf-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:clamp(46px,8vw,104px);line-height:0.96;letter-spacing:-0.03em;
+  margin:0 0 24px;text-wrap:balance;
+}
+.sf-title .serif-em{font-size:1.02em;}
+.sf-lead{
+  font-size:clamp(16px,1.5vw,19px);font-weight:300;line-height:1.7;
+  color:var(--on-dark-mut);max-width:60ch;margin:0 0 36px;
+}
+
+/* ---- tours stage ---- */
+.sf-tours{background:var(--paper);color:var(--on-light);}
+.sf-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;margin-bottom:clamp(36px,4vw,52px);}
+.sf-head h2{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:clamp(32px,4.6vw,58px);line-height:1.0;letter-spacing:-0.025em;margin:0;
+}
+.sf-head p{color:var(--on-light-mut);max-width:54ch;font-weight:300;font-size:17px;line-height:1.6;margin:0;}
+
+/* ---- quick index chips (replaces the old confusing chips) ---- */
+.sf-index{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:clamp(44px,6vw,72px);}
+.sf-chip{
+  display:inline-flex;align-items:center;gap:12px;
+  border:1px solid var(--hair-l);border-radius:var(--r-pill);
+  padding:11px 18px 11px 14px;background:var(--card);
+  transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease);
+}
+.sf-chip:hover{transform:translateY(-3px);border-color:var(--orange);box-shadow:0 18px 30px -18px rgba(0,0,0,0.4);}
+.sf-chip .num{font-family:'Space Mono',monospace;font-size:12px;color:var(--orange);font-weight:700;}
+.sf-chip .nm{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14.5px;letter-spacing:-0.01em;color:var(--on-light);}
+.sf-chip .min{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--on-light-mut);}
+
+/* ---- tour rows: photo · details · map ---- */
+.tour-list{display:flex;flex-direction:column;gap:clamp(26px,3.4vw,48px);}
+.tour-card{
+  display:grid;grid-template-columns:0.92fr 1.06fr 0.92fr;
+  gap:clamp(20px,2.4vw,38px);align-items:stretch;
+  background:var(--card);border:1px solid rgba(0,0,0,0.07);border-radius:var(--r-lg);
+  padding:clamp(16px,1.8vw,24px);
+  box-shadow:0 30px 64px -44px rgba(0,0,0,0.55);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+}
+.tour-card:hover{transform:translateY(-6px);box-shadow:0 46px 90px -44px rgba(0,0,0,0.6);}
+.tour-media,.tour-map{position:relative;border-radius:var(--r-md);overflow:hidden;min-height:clamp(260px,26vw,340px);}
+.tour-media{background:var(--sand);}
+.tour-media img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease);}
+.tour-card:hover .tour-media img{transform:scale(1.06);}
+.t-index{
+  position:absolute;top:14px;left:14px;z-index:2;
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.06em;
+  color:#fff;background:rgba(8,8,10,0.6);backdrop-filter:blur(8px);
+  padding:7px 13px;border-radius:var(--r-pill);
+}
+.tour-body{display:flex;flex-direction:column;padding:clamp(10px,1.4vw,20px) clamp(4px,0.8vw,12px);}
+.tour-body .route{
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--orange-deep);display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.tour-body .route::before{content:"";width:22px;height:1px;background:var(--orange-deep);opacity:.7;}
+.tour-body h3{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,2.4vw,34px);
+  letter-spacing:-0.02em;line-height:1.02;margin:0 0 6px;
+}
+.tour-dur{font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--on-light-mut);margin-bottom:18px;}
+.tour-price{display:flex;gap:22px;padding:16px 0;margin-bottom:18px;border-top:1px solid var(--hair-l);border-bottom:1px solid var(--hair-l);}
+.tour-price .p{display:flex;flex-direction:column;gap:3px;}
+.tour-price .p .k{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--on-light-mut);}
+.tour-price .p .v{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(22px,2vw,28px);letter-spacing:-0.02em;line-height:1;}
+.tour-price .p .v span{color:var(--orange);}
+.tour-desc{color:var(--on-light-mut);font-size:14.5px;line-height:1.66;margin:0 0 24px;}
+.tour-min{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#9a948a;margin-bottom:18px;}
+.tour-book{margin-top:auto;align-self:flex-start;}
+.tour-map{border:1px solid var(--hair-l);background:var(--sand);}
+.tour-map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(0.25) contrast(1.03);}
+.tour-map .m-tag{
+  position:absolute;top:14px;left:14px;z-index:2;pointer-events:none;
+  font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;
+  color:#fff;background:rgba(8,8,10,0.7);backdrop-filter:blur(8px);
+  padding:7px 12px;border-radius:var(--r-pill);
+}
+
+/* ---- all-routes overview (sits above the tours) ---- */
+.sf-overview{margin-bottom:clamp(44px,6vw,72px);}
+.sf-overview .ov-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;margin-bottom:clamp(22px,3vw,34px);}
+.sf-overview .ov-head h3{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(22px,2.6vw,32px);letter-spacing:-0.02em;margin:0;color:var(--on-light);}
+.sf-routemap{
+  max-width:1060px;margin:0 auto;border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--hair-l);background:var(--sand);aspect-ratio:95/47;
+  box-shadow:0 34px 70px -46px rgba(0,0,0,0.55);
+}
+.sf-routemap iframe{width:100%;height:100%;border:0;display:block;}
+@media (max-width:640px){.sf-routemap{aspect-ratio:1/1;}}
+
+/* ---- closing CTA ---- */
+.sf-cta{background:var(--black);color:var(--on-dark);text-align:center;}
+.sf-cta h2{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(30px,4vw,52px);letter-spacing:-0.025em;line-height:1.04;margin:0 auto 18px;max-width:18ch;}
+.sf-cta p{color:var(--on-dark-mut);font-weight:300;font-size:17px;line-height:1.6;max-width:48ch;margin:0 auto 34px;}
+.sf-cta .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+@media (max-width:980px){
+  .tour-card{grid-template-columns:1fr;}
+  .tour-media,.tour-map{min-height:240px;}
+  .tour-body{padding:8px 4px 4px;}
+}
+@media (max-width:760px){
+  .sf-hero{padding-top:140px;}
+  .sf-cta .actions{flex-direction:column;align-items:stretch;max-width:320px;margin:0 auto;}
+  .sf-cta .actions .btn{width:100%;justify-content:center;}
+}

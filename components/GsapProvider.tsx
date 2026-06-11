@@ -18,6 +18,8 @@ export default function GsapProvider() {
         /* ---------- HERO load timeline ----------
            Elements start hidden via .js-anim CSS, so we use fromTo with
            explicit start/end states (a plain .from would animate 0 -> 0). */
+        const hasHeroTimeline = !!document.querySelector('[data-hero="line"]');
+        if (hasHeroTimeline) {
         const tl = gsap.timeline({ defaults: { ease: EASE }, delay: 0.15 });
 
         tl.fromTo(
@@ -57,6 +59,7 @@ export default function GsapProvider() {
             { opacity: 1, duration: 0.8 },
             "-=0.4"
           );
+        }
 
         /* ---------- Hero media gentle parallax on scroll ---------- */
         gsap.to("[data-hero-media]", {
@@ -110,20 +113,22 @@ export default function GsapProvider() {
         });
 
         /* ---------- Photo-band parallax ---------- */
-        gsap.fromTo(
-          "[data-parallax]",
-          { yPercent: -8 },
-          {
-            yPercent: 8,
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".photoband",
-              start: "top bottom",
-              end: "bottom top",
-              scrub: true,
-            },
-          }
-        );
+        if (document.querySelector("[data-parallax]")) {
+          gsap.fromTo(
+            "[data-parallax]",
+            { yPercent: -8 },
+            {
+              yPercent: 8,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".photoband",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+              },
+            }
+          );
+        }
       });
 
       // ---- Reduced motion: just make everything visible, no movement ----
