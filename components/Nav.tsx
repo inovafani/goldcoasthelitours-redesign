@@ -30,6 +30,9 @@ import {
   FilmIcon,
   RescueIcon,
   CraneIcon,
+  PinIcon,
+  ShieldIcon,
+  CheckIcon,
 } from "./icons";
 
 const MENU_ICONS = {
@@ -49,6 +52,9 @@ const MENU_ICONS = {
   film: FilmIcon,
   rescue: RescueIcon,
   crane: CraneIcon,
+  pin: PinIcon,
+  shield: ShieldIcon,
+  check: CheckIcon,
 } as const;
 
 type Child = { label: string; href: string; short: string; icon: keyof typeof MENU_ICONS };
@@ -75,14 +81,22 @@ const SPEC_OP_CHILDREN: Child[] = SPEC_OPS.map((s) => ({
   icon: s.icon,
 }));
 
+const ABOUT_CHILDREN: Child[] = [
+  { label: "Our Fleet", href: "/our-fleet", short: "Jet-turbine & piston helicopters, plus our marine helipad.", icon: "plane" },
+  { label: "Facilities", href: "/facilities", short: "Our Marina Mirage heliport & engineering base.", icon: "pin" },
+  { label: "FAQ", href: "/faq", short: "Answers to the questions we hear most.", icon: "survey" },
+  { label: "Booking Policies", href: "/booking-policies", short: "Fares, deposits, cancellations & vouchers.", icon: "check" },
+  { label: "Privacy Policy", href: "/privacy-policy", short: "How we handle your personal information.", icon: "shield" },
+];
+
 const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/", spyId: "top" },
   { label: "Scenic Flights", href: "/scenic-flights" },
   { label: "Charter", href: "/charter", children: CHARTER_CHILDREN },
   { label: "Special Occasions", href: "/special-occasions", children: SPECIAL_CHILDREN },
   { label: "Specialised Operations", href: "/specialised-operations", children: SPEC_OP_CHILDREN },
-  { label: "About us", href: "/#aero" },
-  { label: "Contact Us", href: "/#contact", spyId: "contact" },
+  { label: "About us", href: "/#aero", children: ABOUT_CHILDREN },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 const SPY_SECTIONS = ["top", "scenic", "charter", "offers", "aero", "contact"];
@@ -141,7 +155,8 @@ export default function Nav() {
 
   function isActive(link: NavLink) {
     if (!onHome) {
-      return link.href !== "/" && pathname.startsWith(link.href);
+      if (link.children && link.children.some((c) => pathname.startsWith(c.href))) return true;
+      return link.href !== "/" && !link.href.includes("#") && pathname.startsWith(link.href);
     }
     return !!link.spyId && link.spyId === activeSpy;
   }
