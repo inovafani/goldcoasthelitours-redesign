@@ -139,3 +139,57 @@ export function ChevronUp(props: IconProps) {
     </svg>
   );
 }
+
+export function ChevronDown(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} strokeWidth={2.2} {...props}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+export function SurveyIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 3v3M12 18v3M3 12h3M18 12h3" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
+export function PlaneIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="M17.8 19.2 16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a.5.5 0 0 0-.5.8l3.2 4-2 2-2.4-.6a.5.5 0 0 0-.5.8L5 17l1.8 2.4a.5.5 0 0 0 .8-.1l.6-2.4 2-2 4 3.2a.5.5 0 0 0 .8-.5Z" />
+    </svg>
+  );
+}
+
+export function BriefcaseIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+    </svg>
+  );
+}
+
+export function FlagIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1Z" />
+      <path d="M4 22v-7" />
+    </svg>
+  );
+}
+
+export function CalendarStarIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...stroke} {...props}>
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
+      <path d="m12 13 1 2 2 .3-1.5 1.4.4 2.1-1.9-1-1.9 1 .4-2.1L9 15.3 11 15Z" />
+    </svg>
+  );
+}

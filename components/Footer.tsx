@@ -20,7 +20,7 @@ export default function Footer() {
                 <a href="/scenic-flights">Scenic Flights</a>
               </li>
               <li>
-                <a href="/#charter">Charter</a>
+                <a href="/charter">Charter</a>
               </li>
               <li>
                 <a href="/#offers">Special Occasions</a>
