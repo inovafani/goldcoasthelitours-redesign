@@ -65,7 +65,7 @@ const TOURS: Tour[] = [
     mins: 20,
     adult: 295,
     child: 275,
-    img: "/assets/tours/tour4.png",
+    img: "/assets/tours/tour4.jpg",
     book: "https://goldcoasthelitours.rezdy.com/catalog/60273/tour-4-20-minute-flight",
     map: "https://www.google.com/maps/d/u/0/embed?mid=1OXQfINc1j22sQsONUNGgnFkme5T7FA0&ehbc=2E312F&noprof=1",
     desc: "Departs northbound over Sea World to Sovereign Islands via Runaway Bay, turning west for Royal Pines, Robina Town Centre and Bond Uni before descending overhead 'Millionaires Row' Hedges Avenue — flying coastal past The Star Casino, Q1 and Surfers Paradise.",

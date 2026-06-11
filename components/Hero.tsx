@@ -1,14 +1,19 @@
+import Image from "next/image";
 import { ArrowRight, PinIcon, ShieldIcon, ClockIcon } from "./icons";
 
 export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-media" data-hero-media>
-        {/* Drop a sunset flight video at /assets/hero.mp4 to use video; the photo is the poster/fallback */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        {/* LCP image — served as AVIF/WebP, responsive, and preloaded via priority */}
+        <Image
           src="/assets/hero-coast.jpg"
           alt="Gold Coast Helitours helicopter flying over Surfers Paradise at golden hour"
+          fill
+          priority
+          sizes="100vw"
+          quality={82}
+          style={{ objectFit: "cover", objectPosition: "center 42%" }}
         />
       </div>
       <div className="hero-scrim" />

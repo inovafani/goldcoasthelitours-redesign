@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { ArrowRight, CheckIcon } from './icons';
 
 type Offer = {
@@ -70,11 +71,13 @@ export default function Offers() {
                   <span className="dot" />
                   {offer.tag}
                 </span>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/assets/hero-coast.jpg"
                   alt={`${offer.title} — scenic helicopter flight over the Gold Coast`}
-                  style={{ objectPosition: offer.imgPosition }}
+                  fill
+                  sizes="(max-width:760px) 100vw, 50vw"
+                  quality={80}
+                  style={{ objectFit: 'cover', objectPosition: offer.imgPosition }}
                 />
               </div>
               <div className="offer-body">

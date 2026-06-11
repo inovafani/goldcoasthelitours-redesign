@@ -107,7 +107,7 @@ export const CHARTER_SERVICES: CharterService[] = [
     name: "Special Events",
     short: "Straight to the GC500, concerts and beyond.",
     icon: "calendar",
-    hero: "/assets/tours/tour4.png",
+    hero: "/assets/tours/tour4.jpg",
     lead: "Bespoke charters to the Gold Coast's biggest events.",
     intro: [
       "Our fleet of helicopters provides the flexibility to offer a wide range of bespoke charter services at your convenience. By prior arrangement we can transport you directly to the myriad of special events which take place right here on the Gold Coast and beyond.",

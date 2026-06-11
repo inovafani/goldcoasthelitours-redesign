@@ -222,7 +222,7 @@ export default function ContactPage() {
       </section>
 
       {/* ============ VISUAL TOUR ============ */}
-      <section className="section visual-tour">
+      <section className="section visual-tour" id="directions">
         <div className="wrap">
           <div className="sf-head">
             <span className="eyebrow center reveal">Step by step</span>
@@ -234,20 +234,20 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <ol className="tour-grid">
+          <ol className="ct-tour-grid">
             {STEPS.map((s, i) => (
-              <li key={s.img} className="tour-step reveal" data-delay={(i % 3) + 1}>
-                <figure className="tour-media">
+              <li key={s.img} className="ct-tour-step reveal" data-delay={(i % 3) + 1}>
+                <figure className="ct-tour-media">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={s.img} alt={`Step ${i + 1} — ${s.cap}`} loading="lazy" />
-                  <span className="tour-num">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="ct-tour-num">{String(i + 1).padStart(2, "0")}</span>
                 </figure>
-                <p className="tour-cap">{s.cap}</p>
+                <p className="ct-tour-cap">{s.cap}</p>
               </li>
             ))}
           </ol>
 
-          <p className="tour-welcome reveal">
+          <p className="ct-tour-welcome reveal">
             Thank you — we look forward to welcoming you aboard.
           </p>
         </div>

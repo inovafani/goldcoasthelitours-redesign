@@ -169,7 +169,7 @@ export default function Nav() {
         <span className="a-txt">
           Access to our location has changed due to nearby construction.
         </span>
-        <a href="/#contact">
+        <a href="/contact-us#directions">
           View directions
           <ArrowRight />
         </a>
